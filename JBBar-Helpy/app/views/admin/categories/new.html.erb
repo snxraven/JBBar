@@ -1,0 +1,14 @@
+<% title "#{admin_title} #{t(:new_category, default: 'New Category')}" %>
+
+<script type="text/javascript">
+  $(function () {
+      $(".icon-picker").iconPicker();
+  });
+</script>
+
+<h2><%= t(:new_category, default: 'New Category') %></h2>
+
+<%= simple_form_for [:admin, @category], validate: true, label_errors: true, method: 'post' do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= render :partial => 'form', :object => @category, :locals => {:f => f} %>
+<% end %>
